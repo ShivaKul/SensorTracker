@@ -7,6 +7,7 @@
     <string name="age">Age</string>
     <string name="gender">Gender</string>
     <string-array name="screens_array">
+        <item>Navigation Menu</item>
         <item>Login</item>
         <item>Sensors</item>
         <item>Record</item>
