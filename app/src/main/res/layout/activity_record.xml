@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.shiva.sensortracker.Record">
 
     <android.support.v7.widget.Toolbar
@@ -23,13 +22,13 @@
             android:layout_below="@+id/action_bar">
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:src="@drawable/iitb_logo"/>
 
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:entries="@array/screens_array"
                 android:id="@+id/screen_spinner"
@@ -37,11 +36,12 @@
             </Spinner>
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:src="@drawable/rec_button"
                 android:onClick="goToRecord"
-                android:background="?android:selectableItemBackground"/>
+                android:background="?android:selectableItemBackground"
+                android:layout_weight="4"/>
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
@@ -54,29 +54,48 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="80dp"
             android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp">
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
                 android:text="Start Recording"
                 android:textSize="26sp"
                 android:textAlignment="center"/>
-            <ToggleButton
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="4"/>
+            <Switch
+                android:layout_width="0dp"
+                android:id="@+id/switch_toggle"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
         </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="TimeStamps"
-            android:layout_marginTop="100dp"/>
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/previous_timestamps"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"/>
+
+            <ListView
+                android:id="@+id/time_stamps"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10">
+
+            </ListView>
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>
