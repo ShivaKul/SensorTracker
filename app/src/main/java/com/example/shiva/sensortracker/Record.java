@@ -9,8 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
-import android.widget.ToggleButton;
+import android.widget.Switch;
 
 import java.util.ArrayList;
 
@@ -26,15 +25,24 @@ public class Record extends AppCompatActivity implements AdapterView.OnItemSelec
         firstTimeSpinner = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record);
+
+        String[] spinnerItems = new String[] {
+                "Login", "Sensors", "Record"
+        };
+
         Spinner spinner = (Spinner) findViewById(R.id.screen_spinner);
         spinner.setOnItemSelectedListener(this);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerItems);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
         spinner.setSelection(2);
+
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, simple_list_item_1, listTimeStamps);
         listView = (ListView) findViewById(R.id.time_stamps);
         listView.setAdapter(adapter);
 
-        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggle_button);
-        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        Switch switch_r= (Switch) findViewById(R.id.switch_toggle);
+        switch_r.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     Long tsLong = System.currentTimeMillis() / 1000;
@@ -57,11 +65,9 @@ public class Record extends AppCompatActivity implements AdapterView.OnItemSelec
         if(firstTimeSpinner)
         {
             firstTimeSpinner = false;
-            Toast.makeText(getApplicationContext(), "First time.", Toast.LENGTH_SHORT).show();
         }
         else
         {
-            Toast.makeText(getApplicationContext(), parent.getItemAtPosition(pos).toString(), Toast.LENGTH_SHORT).show();
             Intent intent = null;
             if(parent.getItemAtPosition(pos).toString().equals("Login"))
                 intent = new Intent(this, MainActivity.class);

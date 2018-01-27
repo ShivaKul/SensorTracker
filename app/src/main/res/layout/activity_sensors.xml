@@ -22,13 +22,13 @@
             android:layout_below="@+id/action_bar">
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:src="@drawable/iitb_logo"/>
 
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:entries="@array/screens_array"
                 android:id="@+id/screen_spinner"
@@ -36,27 +36,43 @@
             </Spinner>
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:src="@drawable/rec_button"
                 android:onClick="goToRecord"
-                android:background="?android:selectableItemBackground"/>
+                android:background="?android:selectableItemBackground"
+                android:layout_weight="4"/>
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sensor_options"
+        android:textSize="24sp"
+        android:id="@+id/heading_textview"
+        android:gravity="center"
+        android:layout_below="@+id/action_bar"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/action_bar"
+        android:layout_below="@id/heading_textview"
         android:layout_marginTop="100dp"
-        android:layout_marginBottom="175dp">
+        android:layout_marginBottom="175dp"
+        android:paddingLeft="75dp"
+        android:paddingRight="75dp"
+        android:showDividers="middle"
+        android:divider="@drawable/divider_drawable">
 
         <CheckBox android:id="@+id/checkbox_meat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
+            android:text="@string/accel"
             android:button="@null"
             android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
             android:layout_weight="1"/>
@@ -64,7 +80,7 @@
         <CheckBox android:id="@+id/checkbox_cheese"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
+            android:text="@string/gps"
             android:button="@null"
             android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
             android:layout_weight="1"/>

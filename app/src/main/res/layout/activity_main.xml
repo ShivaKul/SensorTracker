@@ -23,13 +23,13 @@
             android:layout_below="@+id/action_bar">
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:src="@drawable/iitb_logo"/>
 
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:entries="@array/screens_array"
                 android:id="@+id/screen_spinner"
@@ -37,10 +37,12 @@
             </Spinner>
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:src="@drawable/rec_button"
-                android:onClick="goToRecord"/>
+                android:onClick="goToRecord"
+                android:background="?android:selectableItemBackground"
+                android:layout_weight="4"/>
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
@@ -68,20 +70,24 @@
             android:orientation="horizontal">
             <EditText
                 android:layout_width="match_parent"
+                android:id="@+id/first_name"
                 android:layout_height="wrap_content"
-                android:hint="@string/login"
+                android:hint="@string/first_name"
                 android:layout_weight="1"/>
             <EditText
                 android:layout_width="match_parent"
+                android:id="@+id/last_name"
                 android:layout_height="wrap_content"
-                android:hint="@string/login"
+                android:hint="@string/last_name"
                 android:layout_weight="1"/>
         </LinearLayout>
         <EditText
             android:layout_width="match_parent"
+            android:id="@+id/contact"
             android:layout_height="wrap_content"
             android:hint="@string/contact" />
         <EditText
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email" />
@@ -95,6 +101,7 @@
             android:gravity="center"/>
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/radio_gender"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -103,19 +110,19 @@
             <RadioButton android:id="@+id/male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/gender"
+                android:text="@string/male"
                 android:onClick="onRadioButtonClicked"/>
 
             <RadioButton android:id="@+id/female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/gender"
+                android:text="@string/female"
                 android:onClick="onRadioButtonClicked" />
 
             <RadioButton android:id="@+id/others"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/gender"
+                android:text="@string/others"
                 android:onClick="onRadioButtonClicked"/>
 
         </RadioGroup>
@@ -123,15 +130,16 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/age"
             android:hint="@string/age"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"/>
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="placeholder" />
+            android:text="@string/login_instructions" />
     </LinearLayout>
 
 </RelativeLayout>
